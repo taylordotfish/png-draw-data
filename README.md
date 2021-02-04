@@ -31,7 +31,9 @@ Dependencies
 * Python ≥ 3.7
 * Python package: [Pillow]
 
-Run `pip3 install -r requirements.txt` to install the Python packages.
+Run `pip3 install -r requirements.txt` to install the Python packages. You can
+also use `requirements.freeze.txt` instead to install specific versions of the
+dependencies that have been verified to work.
 
 [Pillow]: https://pypi.org/project/Pillow
 
