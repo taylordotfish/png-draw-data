@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-from configparser import ConfigParser
+from configparser import ConfigParser, DEFAULTSECT
 from dataclasses import dataclass
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
@@ -158,8 +158,8 @@ def main():
 
     config = ConfigParser()
     with open(CONFIG_PATH, encoding="utf8") as f:
-        config.read_string(f"[DEFAULT]\n{f.read()}")
-    config = config["DEFAULT"]
+        config.read_string(f"[{DEFAULTSECT}]\n{f.read()}")
+    config = config[DEFAULTSECT]
 
     BATCH_SUFFIX = config["batch-suffix"]
     PATTERNS = get_patterns()
