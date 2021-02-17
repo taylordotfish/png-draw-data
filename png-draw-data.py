@@ -18,11 +18,18 @@ from configparser import ConfigParser, DEFAULTSECT
 from dataclasses import dataclass
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
-from typing import List
 import os
 import os.path
 import re
 import sys
+import typing
+
+try:
+    list[int]
+except Exception:
+    List = typing.List
+else:
+    List = list
 
 USAGE = f"""\
 Usage: {sys.argv[0]} <input> <output>
@@ -42,9 +49,11 @@ CONFIG_PATH = os.path.join(SCRIPT_DIR, "config.ini")
 PATTERNS_PATH = os.path.join(SCRIPT_DIR, "patterns.txt")
 DEFAULT_TTF = os.path.join(SCRIPT_DIR, "noto/NotoSansMono-Regular.ttf")
 PNG_END = b"IEND\xAE\x42\x60\x82"
-BATCH_SUFFIX: str = None
-PATTERNS: List["Pattern"] = None
-FONT: ImageFont.ImageFont = None
+
+# Initialized in `main()`
+BATCH_SUFFIX: str
+PATTERNS: List["Pattern"]
+FONT: ImageFont.ImageFont
 
 
 @dataclass
