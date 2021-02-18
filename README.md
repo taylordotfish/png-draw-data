@@ -16,7 +16,7 @@ Run `./png-draw-data.py` for usage information.
 png-draw-data is configurable via [config.ini](config.ini) and
 [patterns.txt](patterns.txt). patterns.txt contains pairs of lines, separated
 by blank lines, where the first line in each pair is a regular expression used
-with [Python’s `re` module][re] module with the options [`re.VERBOSE`] and
+with [Python’s `re` module][re] with the options [`re.VERBOSE`] and
 [`re.MULTILINE`], and the second line is a template string used with
 [`re.Match.expand()`][expand].
 
